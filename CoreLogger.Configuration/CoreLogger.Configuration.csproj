@@ -8,7 +8,7 @@
     <Description>Shared class betwenn CoreLogger and CoreLogger.Inspector</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>CoreLogger.png</PackageIcon>
-    <RepositoryUrl>https://dev.azure.com/rsadocchi/CoreLoggerSuite</RepositoryUrl>
+    <RepositoryUrl>https://github.com/RSadocchi/CoreLoggerSuite.git</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>ASPCore;MVC;Log;Core Logger; Core;Logger</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

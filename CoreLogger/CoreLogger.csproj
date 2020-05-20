@@ -7,7 +7,7 @@
     <IsPackable>true</IsPackable>
     <Version>2.1.48</Version>
     <Description>Log utility for Core application, can log in SQL database, SQLite database o txt file at same time. Provide a Middelware for ASP MCV Core application and razor Pages to inspect your log, with routing "/corelogger".</Description>
-    <RepositoryUrl>https://dev.azure.com/rsadocchi/CoreLoggerSuite</RepositoryUrl>
+    <RepositoryUrl>https://github.com/RSadocchi/CoreLoggerSuite.git</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>ASPCore;MVC;Log;Core Logger; Core;Logger</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
