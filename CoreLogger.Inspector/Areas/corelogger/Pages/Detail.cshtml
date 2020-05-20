@@ -1,0 +1,27 @@
+﻿@page
+@model CoreLogger.Inspector.Areas.corelogger.Pages.DetailModel
+@(await Html.PartialAsync("_Styles"))
+<section class="cl-container">
+    @(await Html.PartialAsync("_HeaderPartial", Model.Options))
+    <div class="cl-content">
+        <div><span class="cpoint tbld" onclick="window.history.back();">&laquo;<small> Back to list</small></span></div>
+        <hr />
+        <div class="cl-log-header p4b">
+            <div class="">Level: <span class="cl-level-@(Model.Detail_Log.LevelID)">@((Microsoft.Extensions.Logging.LogLevel)Model.Detail_Log.LevelID)</span></div>
+            <div class="">@(Model.Detail_Log.DateTime.ToLongDateString()) @(Model.Detail_Log.DateTime.ToLongTimeString())</div>
+            <div class=""><code>Caller: @(Model.Detail_Log.CallerMemberName) | Line: @(Model.Detail_Log.CallerMemberLineNumber)</code></div>
+        </div>
+        <div class="cl-log-message p4b">
+            <label>Message</label>
+            @(Model.Detail_Log.Message)
+        </div>
+        <div class="cl-log-full p4b">
+            <label>Full data</label>
+            <code>@(Model.Detail_Log.FullData)</code>
+        </div>
+        <div class="cl-log-action">
+
+        </div>
+    </div>
+    @(await Html.PartialAsync("_FooterPartial", Model.Options))
+</section>

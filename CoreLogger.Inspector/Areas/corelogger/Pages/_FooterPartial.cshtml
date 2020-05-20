@@ -1,0 +1,28 @@
+﻿@model CoreLogger.CoreLoggerConfiguration
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment environment
+@{
+    var inspectorVersion = typeof(CoreLogger.Inspector.Images).Assembly.GetName().Version;
+}
+<div class="cl-footer">
+    <hr />
+    @if (Model.Contacts?.Count() > 0)
+    {
+        <div class="cl-flex cl-flex-row cl-flex-wrap">
+            @foreach (var contact in Model.Contacts)
+            {
+                <div class="p4">
+                    <div class="tupc tbld tgray">@(contact.Role)</div>
+                    <div>@(contact.Name)</div>
+                    
+                    @if (!string.IsNullOrWhiteSpace(contact.Email))
+                    {
+                        <div><a href="mailto:@(contact.Email)">@(contact.Email)</a></div>
+                    }
+                    <div>@(contact.Mobile)</div>
+                    <div>@(contact.Telephone)</div>
+                </div>
+            }
+        </div>
+    }
+    <code class="cl-block trght">CoreLogger Inspector Version @(inspectorVersion.ToString()) | Environment: @(environment.EnvironmentName)</code>
+</div>

@@ -1,0 +1,75 @@
+﻿@page
+@model CoreLogger.Inspector.Areas.corelogger.Pages.RecapModel
+@(await Html.PartialAsync("_Styles"))
+<section class="cl-container">
+    @(await Html.PartialAsync("_HeaderPartial", Model.Options))
+    <div class="cl-content">
+        <div class="cl-filter">
+            <form method="post" class="cl-flex cl-flex-row cl-just-around">
+                <div class="cl-filter-formgroup">
+                    <label asp-for="Source">Source:</label>
+                    <select asp-for="Source">
+                        @foreach (var s in Model.Sources)
+                        {
+                            <option value="@(s.Value)">@(s.Text)</option>
+                        }
+                    </select>
+                </div>
+                <div class="cl-filter-formgroup">
+                    <label asp-for="Level">Level:</label>
+                    <select asp-for="Level">
+                        @foreach (var s in Model.Levels)
+                        {
+                            <option value="@(s.Value)">@(s.Text)</option>
+                        }
+                    </select>
+                </div>
+                <div class="cl-filter-formgroup">
+                    <label asp-for="From">From date:</label>
+                    <input asp-for="From" type="date" />
+                </div>
+                <div class="cl-filter-formgroup">
+                    <label asp-for="To">To date:</label>
+                    <input asp-for="To" type="date" />
+                </div>
+                <div class="cl-filter-formgroup">
+                    <button type="reset" class="cl-filter-reset m4x p2">
+                        <img alt="Reset" src="@(CoreLogger.Inspector.Images.Reset)" width="25" />
+                    </button>
+                    <button type="submit" class="cl-filter-reset m4x p2">
+                        <img alt="Apply" src="@(CoreLogger.Inspector.Images.Filter)" width="25" />
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div id="clRecap" class="cl-recap">
+            @foreach (var log in Model.Logs)
+            {
+                <div class="log-item-container">
+                    <div class="cl-flex cl-flex-row cl-just-between">
+                        <div class="cl-flex">
+                            <div class="m4x cl-level-@(log.LevelID)">@((Microsoft.Extensions.Logging.LogLevel)log.LevelID)</div>
+                            <div class="m4x">@(log.DateTime.ToString("yyyy-MM-dd HH:ss"))</div>
+                            <div class="m4x">Caller @(log.CallerMemberName)</div>
+                            <div class="m4x">Line @(log.CallerMemberLineNumber)</div>
+                        </div>
+                        <div class="p4r cl-flex cl-just-end">
+                            <form asp-page-handler="detail" method="post">
+                                <input type="hidden" name="source" value="@(Model.Source)" />
+                                <input type="hidden" name="level" value="@(log.LevelID)" />
+                                <input type="hidden" name="id" value="@(Model.Source == (int)CoreLogger.LogSource.File ? log.DateTime.Ticks : log.ID)" />
+                                <button type="submit" class="cl-filter-reset m4x p2">
+                                    <img alt="Detail" src="@(CoreLogger.Inspector.Images.OpenLink)" width="15" />
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="log-item-short p3b">
+                        <div class="">@(log.Message)</div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    @(await Html.PartialAsync("_FooterPartial", Model.Options))
+</section>

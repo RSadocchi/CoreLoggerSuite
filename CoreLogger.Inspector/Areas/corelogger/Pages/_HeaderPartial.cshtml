@@ -1,0 +1,18 @@
+﻿@model CoreLogger.CoreLoggerConfiguration
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment environment
+@{ 
+    var inspectorVersion = typeof(CoreLogger.Inspector.Images).Assembly.GetName().Version;
+}
+<div class="cl-header">
+    @if (!string.IsNullOrWhiteSpace(Model.Title))
+    {
+        <h1>@(Model.Title)</h1>
+    }
+    @if (!string.IsNullOrWhiteSpace(Model.Description))
+    {
+        <h6>@(Model.Description)</h6>
+    }
+    <code class="cl-block trght">CoreLogger Inspector Version @(inspectorVersion.ToString()) | Environment: @(environment.EnvironmentName)</code>
+    <hr />
+</div>
+

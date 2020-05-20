@@ -1,0 +1,34 @@
+﻿@page
+@model CoreLogger.Inspector.Areas.corelogger.Pages.IndexModel
+@(await Html.PartialAsync("_Styles"))
+<section class="cl-container">
+    @(await Html.PartialAsync("_HeaderPartial", Model.Options))
+    @if (!Model.DenyEnvironment)
+    {
+        <div class="cl-content p4y">
+            <form method="post" class="cl-flex cl-flex-col">
+                <div class="cl-filter-formgroup">
+                    <label asp-for="Username">Username</label>
+                    <input asp-for="Username" />
+                </div>
+                <div class="cl-filter-formgroup">
+                    <label asp-for="Password">Username</label>
+                    <input asp-for="Password" type="password" />
+                </div>
+                <div class="cl-filter-formgroup tright">
+                    <button type="submit" class="tupc p2">Enter</button>
+                </div>
+            </form>
+            @if (!string.IsNullOrWhiteSpace(Model.Message))
+            {
+                <h6 class="tred tbld">@(Model.Message)</h6>
+            }
+        </div>
+    }
+    else
+    {
+        <h1>Oops..</h1>
+        <h3>CoreLogger Inspector is not allowed in this environment.</h3>
+    }
+    @(await Html.PartialAsync("_FooterPartial", Model.Options))
+</section>

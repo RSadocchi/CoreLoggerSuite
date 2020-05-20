@@ -1,0 +1,11 @@
+.vs/
+CoreLogger/bin/
+CoreLogger/obj/
+CoreLogger.Inspector/bin/
+CoreLogger.Inspector/obj/
+CoreLogger.Configuration/bin/
+CoreLogger.Configuration/obj/
+TestApp/bin/
+TestApp/obj/
+TestApp/wwwroot/Log.db3
+TestApp/wwwroot/App_Log/
