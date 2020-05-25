@@ -36,7 +36,7 @@ namespace CoreLogger
         /// <summary>
         /// FOR MIDDELWARE (required) - WARNING if you set to 0 (trace) all HttpContext request will be logged, all Middelware.Invoke()
         /// </summary>
-        public LogLevel MinLevel { get; set; }
+        public LogLevel MinLevel { get; set; } = LogLevel.Warning;
 
         /// <summary>
         /// FOR MIDDELWARE (optional) - The relative or absolute url of the page to redirect if any error occour, all Response StatusCode errors will be redirected here

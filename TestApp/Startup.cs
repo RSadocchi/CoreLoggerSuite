@@ -36,7 +36,7 @@ namespace TestApp
                 /**
                  * Base and Middleware
                  */
-                o.MinLevel = Microsoft.Extensions.Logging.LogLevel.Trace;
+                o.MinLevel = Microsoft.Extensions.Logging.LogLevel.Warning;
                 o.File_FolderPath = System.IO.Path.Combine(_environment.WebRootPath, "App_Log");
                 o.SQLite_FullPath = System.IO.Path.Combine(_environment.WebRootPath, "Log.db3");
                 //o.SQL_ConnectionString = "To use SQL indicate here the connection string";

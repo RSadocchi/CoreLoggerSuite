@@ -31,8 +31,8 @@ namespace CoreLogger.Inspector.Areas.corelogger.Pages
         {
             Sources = new List<(int Value, string Text)>();
             if (_service.Options.UseDailyLogFile) Sources.Add(((int)LogSource.File, $"{LogSource.File}"));
-            if (_service.Options.UseDailyLogFile) Sources.Add(((int)LogSource.SQLite, $"{LogSource.SQLite}"));
-            if (_service.Options.UseDailyLogFile) Sources.Add(((int)LogSource.SQL, $"{LogSource.SQL}"));
+            if (_service.Options.UseSQLite) Sources.Add(((int)LogSource.SQLite, $"{LogSource.SQLite}"));
+            if (_service.Options.UseSQL) Sources.Add(((int)LogSource.SQL, $"{LogSource.SQL}"));
 
             Levels = new List<(int? Value, string Text)>();
             Levels.Add((null, $"All"));

@@ -25,7 +25,7 @@ namespace CoreLogger
             {
                 await _next(context);
 
-                if ((int)_logger.Configuration.MinLevel >= (int)LogLevel.Trace &&
+                if (_logger.Configuration.MinLevel == LogLevel.Trace &&
                     (context.Response.StatusCode != (int)HttpStatusCode.NotFound && context.Response.StatusCode != (int)HttpStatusCode.GatewayTimeout))
                 {
                     var sb = new System.Text.StringBuilder();
@@ -43,7 +43,7 @@ namespace CoreLogger
 
                 if (context.Response.StatusCode == (int)HttpStatusCode.NotFound || context.Response.StatusCode == (int)HttpStatusCode.GatewayTimeout)
                 {
-                    if ((int)_logger.Configuration.MinLevel >= (int)LogLevel.Warning)
+                    if (_logger.Configuration.MinLevel == LogLevel.Warning)
                     {
                         var sb = new System.Text.StringBuilder();
                         sb.Append($"REQUEST:");
