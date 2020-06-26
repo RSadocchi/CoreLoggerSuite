@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CoreLogger.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
 namespace CoreLogger.Inspector.Areas.corelogger.Pages
@@ -31,8 +32,23 @@ namespace CoreLogger.Inspector.Areas.corelogger.Pages
 
         public void OnGet()
         {
-            if (!_service.EnvAllowed() || !_service.IsLogged()) GoToIndex();
-            else Detail_Log = _service.Get((LogSource)Detail_Source, Detail_ID, Detail_Level).Result;
+            try
+            {
+                if (!_service.EnvAllowed() || !_service.IsLogged()) GoToIndex();
+                else Detail_Log = _service.Get((LogSource)Detail_Source, Detail_ID, Detail_Level).Result;
+            }
+            catch (Exception e)
+            {
+                var item = new Log_Master()
+                {
+                    Message = e.Message,
+                    DateTime = DateTime.Now,
+                    LevelID = (int)LogLevel.Error,
+                    CallerMemberName = "DetailModel.OnGet",
+                    FullData = e.ToString()
+                };
+                _service.LogError(item, e);
+            }
         }
 
         private IActionResult GoToIndex() => RedirectToPage("./Index");

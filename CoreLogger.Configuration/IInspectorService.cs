@@ -16,5 +16,8 @@ namespace CoreLogger
         
         Task<IEnumerable<Log_Master>> GetList(LogSource source, int? level = null, DateTime? from = null, DateTime? to = null);
         Task<Log_Master> Get(LogSource source, string id, int? level = null);
+        Task LogInfo(Log_Master item);
+        Task LogWarning(Log_Master item);
+        Task LogError(Log_Master item, Exception exception = null);
     }
 }

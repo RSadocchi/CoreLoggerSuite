@@ -88,6 +88,21 @@ namespace CoreLogger
 
         public async Task<IEnumerable<Log_Master>> GetList(LogSource source, int? level = null, DateTime? from = null, DateTime? to = null)
             => (await _logger.GetList(source, level, from, to)).ToList();
+
+        public async Task LogInfo(Log_Master item)
+        {
+            await _logger.LogInformation(item.Message, item.FullData, item.CallerMemberName, item.CallerMemberLineNumber);
+        }
+        
+        public async Task LogWarning(Log_Master item)
+        {
+            await _logger.LogWarning(item.Message, item.FullData, item.CallerMemberName, item.CallerMemberLineNumber);
+        }
+
+        public async Task LogError(Log_Master item, Exception exception = null)
+        {
+            await _logger.LogError(item.Message, exception, item.CallerMemberName, item.CallerMemberLineNumber);
+        }
     }
 
 

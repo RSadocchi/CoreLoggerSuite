@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <OutputType>Library</OutputType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IsPackable>true</IsPackable>
-    <Version>2.1.50</Version>
+    <Version>2.1.51</Version>
     <Description>Log utility for Core application, can log in SQL database, SQLite database o txt file at same time. Provide a Middelware for ASP MCV Core application and razor Pages to inspect your log, with routing "/corelogger".</Description>
     <RepositoryUrl>https://github.com/RSadocchi/CoreLoggerSuite.git</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
@@ -32,10 +32,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\..\Desktop\CoreLogger resources\CoreLogger.png">
+    <EmbeddedResource Include="..\..\CoreLogger resources\CoreLogger.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
-    </None>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

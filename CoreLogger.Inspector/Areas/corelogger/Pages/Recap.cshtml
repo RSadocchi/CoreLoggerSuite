@@ -33,10 +33,10 @@
                     <input asp-for="To" type="date" />
                 </div>
                 <div class="cl-filter-formgroup">
-                    <button type="reset" class="cl-filter-reset m4x p2">
+                    <button type="reset" class="cl-filter-reset cpoint m4x p2">
                         <img alt="Reset" src="@(CoreLogger.Inspector.Images.Reset)" width="25" />
                     </button>
-                    <button type="submit" class="cl-filter-reset m4x p2">
+                    <button type="submit" class="cl-filter-reset cpoint m4x p2">
                         <img alt="Apply" src="@(CoreLogger.Inspector.Images.Filter)" width="25" />
                     </button>
                 </div>
@@ -58,7 +58,7 @@
                                 <input type="hidden" name="source" value="@(Model.Source)" />
                                 <input type="hidden" name="level" value="@(log.LevelID)" />
                                 <input type="hidden" name="id" value="@(Model.Source == (int)CoreLogger.LogSource.File ? log.DateTime.Ticks : log.ID)" />
-                                <button type="submit" class="cl-filter-reset m4x p2">
+                                <button type="submit" class="cl-filter-reset cpoint m4x p2">
                                     <img alt="Detail" src="@(CoreLogger.Inspector.Images.OpenLink)" width="15" />
                                 </button>
                             </form>
