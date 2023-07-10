@@ -11,7 +11,6 @@
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>ASPCore;MVC;Log;Core Logger; Core;Logger</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageIcon>CoreLogger.png</PackageIcon>
     <Authors>Riccardo Sadocchi</Authors>
     <Company>digitalbubbles</Company>
   </PropertyGroup>
@@ -29,13 +28,6 @@
   <ItemGroup>
     <ProjectReference Include="..\CoreLogger.Configuration\CoreLogger.Configuration.csproj" />
     <ProjectReference Include="..\CoreLogger.Inspector\CoreLogger.Inspector.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="..\..\CoreLogger resources\CoreLogger.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
